@@ -158,7 +158,7 @@ p {
     flex-wrap: wrap;
 }
 
-.split-heading > div {
+.split-heading>div {
     max-width: 650px;
 }
 
@@ -686,7 +686,7 @@ p {
     gap: 10px;
 }
 
-.collage > * {
+.collage>* {
     min-width: 0;
     overflow: hidden;
 }
@@ -975,7 +975,7 @@ p {
     margin-bottom: 16px;
 }
 
-.profile-intro > .container > p {
+.profile-intro>.container>p {
     max-width: 640px;
     color: var(--ink-soft);
     font-size: 1rem;
@@ -1034,7 +1034,8 @@ p {
     color: var(--green);
 }
 
-.vm-block p, .vm-block ol {
+.vm-block p,
+.vm-block ol {
     color: var(--ink-soft);
     font-size: 1.05rem;
     line-height: 1.7;
@@ -1171,9 +1172,11 @@ p {
     .kegiatan-grid {
         grid-template-columns: 1fr;
     }
+
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
+
     .gallery-item img {
         height: 150px;
     }
