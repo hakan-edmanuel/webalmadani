@@ -16,7 +16,7 @@
     --green-soft: #eef5f0;
 
     --yellow: #f2b705;
-    --yellow-soft: #fff7dc;
+    --yellow-soft: #f5f4f3;
 
     --ink: #292d2a;
     --ink-soft: #626a64;
@@ -1021,6 +1021,164 @@ p {
     color: var(--ink-soft);
 }
 
+.vm-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 700px;
+}
+
+.vm-block h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--green);
+}
+
+.vm-block p, .vm-block ol {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.vm-block ol {
+    padding-left: 24px;
+}
+
+.vm-block ol li {
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   20. KEGIATAN & GALLERY PAGES
+   ========================================================= */
+
+.page-header {
+    padding: 58px 0 48px;
+    border-bottom: 1px solid var(--line);
+    background: var(--green-soft);
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    max-width: 640px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+}
+
+.kegiatan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding: 62px 0;
+}
+
+.kegiatan-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+}
+
+.kegiatan-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.kegiatan-content {
+    padding: 20px;
+}
+
+.kegiatan-content h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.kegiatan-content p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 62px 0;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 960px) {
+    .kegiatan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .kegiatan-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .gallery-item img {
+        height: 150px;
+    }
+}
+
 .info-list {
     max-width: 700px;
     border-top: 1px solid var(--line);
@@ -1469,6 +1627,134 @@ p {
     color: var(--ink);
 }
 
+
+/* =========================================================
+   26. SUB-PAGE FOOTER (site-footer)
+   ========================================================= */
+
+.site-footer {
+    background: var(--ink);
+    color: #cfd4cf;
+    padding: 34px 0;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.site-footer .footer-brand strong {
+    display: block;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.site-footer .footer-brand p {
+    max-width: 420px;
+    font-size: 0.86rem;
+}
+
+.footer-meta p {
+    font-size: 0.82rem;
+    color: #9aa39b;
+}
+
+
+/* =========================================================
+   27. SECTION TINT + SUBTLE DECORATION
+   ========================================================= */
+
+.section-tint {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+/* garis tipis pembatas antar-section di halaman sub */
+.page-header {
+    border-bottom: 3px solid var(--green);
+}
+
+/* aksen kecil di sisi kiri heading sub-halaman */
+.kegiatan-card {
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.kegiatan-card:hover {
+    box-shadow: 0 4px 14px rgba(43, 47, 44, 0.09);
+    transform: translateY(-2px);
+}
+
+.kegiatan-card img {
+    border-bottom: 2px solid var(--yellow);
+}
+
+.gallery-item {
+    border: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   28. MOBILE POLISH (sub-page + general)
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+    .site-footer {
+        padding: 28px 0;
+        margin-top: 44px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .kegiatan-grid {
+        padding: 40px 0;
+        gap: 22px;
+    }
+
+    .kegiatan-card img {
+        height: 180px;
+    }
+
+    .gallery-grid {
+        padding: 40px 0;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item img {
+        height: 140px;
+    }
+
+    .profile-intro,
+    .page-header {
+        padding: 38px 0 34px;
+    }
+
+    .profile-history {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 380px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 170px;
+    }
+}
 
 /* =========================================================
    END
