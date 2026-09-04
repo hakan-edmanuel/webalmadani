@@ -13,7 +13,7 @@
     --green: #2e7d4f;
     --green-dark: #235f3c;
     --green-deep: #1d4f32;
-    --green-soft: #eef5f0;
+    --green-soft: #dee6e0;
 
     --yellow: #f2b705;
     --yellow-soft: #d48a1b;
@@ -22,7 +22,7 @@
     --ink-soft: #626a64;
     --ink-light: #879089;
 
-    --line: #dfe5e0;
+    --line: #e0e7e2;
     --line-dark: #cbd4ce;
 
     --bg: #ffffff;
@@ -185,7 +185,7 @@ p {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 253, 246, 0.98);
+    background: rgba(221, 218, 21, 0.98);
     border-bottom: 1px solid var(--line);
 }
 
@@ -220,7 +220,7 @@ p {
     background: transparent;
     border: none;
     box-shadow: none;
-    border-radius: 0;
+    border-radius: 80px;
 
     transform: scale(1.04);
 }
@@ -249,7 +249,7 @@ p {
     background: var(--green);
     color: #ffffff;
 
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 700;
 }
 
@@ -304,7 +304,7 @@ p {
     padding: 9px 17px;
     border: 1px solid var(--green);
     background: var(--green);
-    color: #ffffff;
+    color: #d3c5c5;
     font-size: 0.9rem;
     font-weight: 600;
     transition:
@@ -327,7 +327,7 @@ p {
     flex-direction: column;
     gap: 4px;
     padding: 8px;
-    border: none;
+    border: 20px;
     background: transparent;
     cursor: pointer;
 }
