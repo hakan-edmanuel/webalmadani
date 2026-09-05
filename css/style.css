@@ -17,6 +17,7 @@
 
     --yellow: #f2b705;
     --yellow-soft: #d48a1b;
+    --yellow-wash: rgba(242, 183, 5, 0.16);
 
     --ink: #292d2a;
     --ink-soft: #626a64;
@@ -185,7 +186,7 @@ p {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(221, 218, 21, 0.98);
+    background: #ffffff;
     border-bottom: 1px solid var(--line);
 }
 
@@ -304,7 +305,7 @@ p {
     padding: 9px 17px;
     border: 1px solid var(--green);
     background: var(--green);
-    color: #d3c5c5;
+    color: #ffffff;
     font-size: 0.9rem;
     font-weight: 600;
     transition:
@@ -327,7 +328,7 @@ p {
     flex-direction: column;
     gap: 4px;
     padding: 8px;
-    border: 20px;
+    border: none;
     background: transparent;
     cursor: pointer;
 }
@@ -604,6 +605,16 @@ p {
     min-height: 350px;
 }
 
+/* foto pendukung kecil menimpa sudut foto utama */
+.about-photo-secondary {
+    position: absolute;
+    right: -22px;
+    bottom: -26px;
+    width: 46%;
+    border: 6px solid #ffffff;
+    box-shadow: 0 6px 18px rgba(43, 47, 44, 0.14);
+}
+
 .about-content h2 {
     font-size: clamp(1.65rem, 3vw, 2rem);
 }
@@ -699,6 +710,16 @@ p {
     grid-row: span 2;
 }
 
+.collage-photo {
+    height: 100%;
+}
+
+.collage-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* =========================================================
    13. FACILITIES
@@ -717,7 +738,14 @@ p {
 }
 
 .facility-thumb {
-    min-height: 165px;
+    height: 165px;
+    overflow: hidden;
+}
+
+.facility-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .facility h3 {
@@ -1011,6 +1039,16 @@ p {
     font-size: 1.07rem;
 }
 
+.profile-photo {
+    margin: 26px 0 22px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
 .vm-note {
     max-width: 640px;
     padding: 22px 26px;
@@ -1070,14 +1108,57 @@ p {
     font-size: 1rem;
 }
 
+.kegiatan-section {
+    padding: 62px 0 70px;
+}
+
+/* Fitur utama: foto besar + teks editorial */
+.kegiatan-feature {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 44px;
+}
+
+.kegiatan-feature-photo {
+    position: relative;
+}
+
+.kegiatan-feature-photo img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+}
+
+.kegiatan-tag {
+    margin-bottom: 10px;
+    color: var(--green);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.kegiatan-feature-content h2 {
+    margin-bottom: 14px;
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+}
+
+.kegiatan-feature-content p:last-child {
+    color: var(--ink-soft);
+}
+
+/* Grid kegiatan dengan satu foto unggulan lebih besar */
 .kegiatan-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    padding: 62px 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    margin-top: 46px;
 }
 
 .kegiatan-card {
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
@@ -1086,8 +1167,12 @@ p {
 
 .kegiatan-card img {
     width: 100%;
-    height: 220px;
+    height: 230px;
     object-fit: cover;
+}
+
+.kegiatan-card--lead img {
+    height: 340px;
 }
 
 .kegiatan-content {
@@ -1163,8 +1248,13 @@ p {
 }
 
 @media (max-width: 960px) {
-    .kegiatan-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .kegiatan-feature {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .kegiatan-feature-photo img {
+        height: 300px;
     }
 }
 
@@ -1276,6 +1366,13 @@ p {
 
     .hero-photo-badge {
         left: 12px;
+    }
+
+    .about-photo-secondary {
+        position: static;
+        width: 52%;
+        margin: 18px 0 0 auto;
+        border-width: 4px;
     }
 
     .stats-grid {
@@ -1576,6 +1673,17 @@ p {
     .vm-note {
         padding: 19px 17px;
     }
+
+    .about-photo-secondary {
+        position: static;
+        width: 58%;
+        margin: 18px 0 0 auto;
+        border-width: 4px;
+    }
+
+    .profile-photo img {
+        height: 210px;
+    }
 }
 
 
@@ -1720,13 +1828,29 @@ p {
         gap: 14px;
     }
 
+    .kegiatan-section {
+        padding: 40px 0 46px;
+    }
+
+    .kegiatan-feature {
+        margin-bottom: 30px;
+    }
+
+    .kegiatan-feature-photo img {
+        height: 230px;
+    }
+
     .kegiatan-grid {
-        padding: 40px 0;
+        grid-template-columns: 1fr;
         gap: 22px;
     }
 
     .kegiatan-card img {
-        height: 180px;
+        height: 220px;
+    }
+
+    .kegiatan-card--lead img {
+        height: 260px;
     }
 
     .gallery-grid {
@@ -1756,6 +1880,216 @@ p {
 
     .gallery-item img {
         height: 170px;
+    }
+}
+
+/* =========================================================
+   29. PHOTO FRAMES & COLOR ACCENTS
+   ========================================================= */
+
+/* --- offset decorative frames di belakang foto ---
+   Setiap area foto mendapat perlakuan berbeda agar tidak monoton. */
+.hero-image::before,
+.about-image::before,
+.kegiatan-feature-photo::before,
+.profile-photo--main::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-image::before {
+    top: -14px;
+    right: -14px;
+    width: 72%;
+    height: 96%;
+    background: var(--yellow-wash);
+}
+
+.about-image::before {
+    bottom: -14px;
+    left: -14px;
+    width: 58%;
+    height: 72%;
+    background: var(--green-soft);
+}
+
+.kegiatan-feature-photo::before {
+    bottom: -14px;
+    right: -14px;
+    width: 70%;
+    height: 100%;
+    background: var(--yellow-wash);
+}
+
+.profile-photo--main::before {
+    bottom: -14px;
+    left: -14px;
+    width: 56%;
+    height: 100%;
+    background: var(--yellow-wash);
+}
+
+/* --- foto utama diberi border tipis dan naik di atas frame --- */
+.hero-photo {
+    position: relative;
+    z-index: 1;
+}
+
+.about-image > img {
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--line-dark);
+}
+
+.kegiatan-feature-photo img {
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--line-dark);
+}
+
+.profile-photo {
+    position: relative;
+}
+
+.profile-photo img {
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--line-dark);
+}
+
+/* foto pendukung: mat putih + outline aksen kuning */
+.about-photo-secondary {
+    z-index: 2;
+    border: 4px solid #ffffff;
+    outline: 2px solid var(--yellow);
+}
+
+/* foto pendukung profile: mat putih polos */
+.profile-photo--support img {
+    padding: 5px;
+    background: #ffffff;
+}
+
+/* --- collage: tile ber-mat tipis, dua tile besar diberi aksen warna --- */
+.collage-item {
+    padding: 4px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.collage-item.collage-a {
+    border-color: var(--yellow);
+}
+
+.collage-item.collage-b {
+    border-color: var(--green);
+}
+
+/* --- gallery: foto ber-mat putih --- */
+.gallery-item {
+    padding: 6px;
+    background: #ffffff;
+}
+
+/* --- fasilitas: thumb ber-border + underline kuning pada judul --- */
+.facility-thumb {
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+}
+
+.facility h3 {
+    display: inline-block;
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--yellow);
+}
+
+/* --- kegiatan: garis kuning hanya pada foto unggulan --- */
+.kegiatan-card:not(.kegiatan-card--lead) img {
+    border-bottom: 1px solid var(--line);
+}
+
+/* --- aksen warna konten --- */
+
+/* section Tentang lebih hangat (cream) + eyebrow oranye lembut */
+.section-warm .eyebrow {
+    color: var(--yellow-soft);
+}
+
+/* tombol kontak dengan aksen kuning hangat */
+.contact-box .button {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--ink);
+}
+
+.contact-box .button:hover {
+    background: var(--yellow-soft);
+    border-color: var(--yellow-soft);
+    color: #ffffff;
+}
+
+/* visi-misi: garis aksen kiri pada tiap blok */
+.vm-block {
+    border-left: 3px solid var(--yellow);
+    padding-left: 18px;
+}
+
+.vm-block:nth-child(2) {
+    border-left-color: var(--green);
+}
+
+.vm-block:nth-child(3) {
+    border-left-color: var(--yellow-soft);
+}
+
+/* =========================================================
+   30. PHOTO FRAMES — RESPONSIVE
+   ========================================================= */
+
+/* tablet: offset frame dihilangkan agar tetap rapi, border tetap ada */
+@media (max-width: 960px) {
+
+    .hero-image::before,
+    .about-image::before,
+    .kegiatan-feature-photo::before,
+    .profile-photo--main::before {
+        display: none;
+    }
+
+    .collage-item {
+        padding: 3px;
+    }
+
+    .gallery-item {
+        padding: 4px;
+    }
+
+    .profile-photo--support img {
+        padding: 4px;
+    }
+}
+
+/* mobile kecil: spacing foto diperlonggar agar tidak berdesakan */
+@media (max-width: 560px) {
+
+    .collage-item {
+        padding: 3px;
+    }
+
+    .about-photo-secondary {
+        outline-width: 1.5px;
+    }
+
+    .profile-photo {
+        margin: 20px 0 18px;
+    }
+
+    .facility h3 {
+        padding-bottom: 2px;
+        border-bottom-width: 1.5px;
     }
 }
 
